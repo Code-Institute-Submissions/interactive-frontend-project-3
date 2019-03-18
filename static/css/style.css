@@ -1,0 +1,26 @@
+
+.div {
+    padding-top: 20px;
+}
+
+#navbar-text {
+   color: white; 
+}
+
+#footer {
+    height: 100px;
+    background-color: black;
+}
+
+.footer-text {
+    color: white;
+}
+
+#map {
+    min-height: 360px;
+    overflow: visible;
+}
+
+.graph-title {
+    padding-left: 20px;
+}
