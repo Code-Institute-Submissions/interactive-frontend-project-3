@@ -1,26 +1,55 @@
+/* --- BODY ----*/
 
 .div {
     padding-top: 20px;
 }
 
+/* --- NAV BAR ----*/
+
+.navbar-container {
+    min-height: 100px;
+}
+
 #navbar-text {
    color: white; 
+
 }
 
-#footer {
-    height: 100px;
-    background-color: black;
+/* --- SELECTOR ----*/
+
+.selector {
+    padding-top: 50px;
 }
 
-.footer-text {
-    color: white;
+
+/* --- SECTION 1 ----*/
+
+.graph-title {
+    padding-left: 20px;
 }
+
+
+/* --- SECTION 2 ----*/
+
+/* --- SECTION 3 ----*/
+
+/* --- GOOGLE MAPS ----*/
 
 #map {
     min-height: 360px;
     overflow: visible;
 }
 
-.graph-title {
-    padding-left: 20px;
+/* --- FOOTER ----*/
+
+
+#footer {
+    height: 40px;
+    background-color: #1a6ecc;
 }
+
+.footer-text {
+    color: white;
+}
+
+

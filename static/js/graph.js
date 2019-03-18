@@ -91,10 +91,12 @@ function show_total_rainfall(ndx) {
         //      return d.value.toFixed(1);
         //        })
         .transitionDuration(500)
+        .elasticY(true)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Years")
         .yAxis().ticks(12);
+        
 
 
 }
@@ -114,11 +116,12 @@ function show_total_sunlight(ndx) {
         .width(500)
         .height(300)
         .margins({ top: 40, right: 50, bottom: 30, left: 70 })
+        .elasticY(true)
         .dimension(year_dim)
         .group(total_sunlight_year_group)
-        .valueAccessor(function(d) {
-            return d.value.toFixed(1);
-        })
+     //   .valueAccessor(function(d) {
+     //       return d.value.toFixed(1);
+     //   })
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)

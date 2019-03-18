@@ -28,29 +28,45 @@
 </head>
 
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <!----------------- NAV BAR -------------->
 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand" href="#">Shannon Airport Historical Weather Data</a>
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#section1">Rain & Sunlight</a></li>
+                        <li><a href="#section2">Highest Gust</a></li>
+                        <li><a href="#section3">Averages</a></li>
+                        <li><a href="#section4">Air Temperature</a></li>
 
-    <div class="row">
-        <nav class="navbar navbar-default navbar-static-top">
-
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <h2 id="navbar-text">Shannon Airport Historical Weather Data</h1>
-                        </a>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
+
+
+    </nav>
 
 
 
 
     <!----------------- GRAPHS CONTAINER -------------->
 
-    <div class="container">
+    <div class="container selector">
 
         <!----------------- Year Selector ------------>
 
@@ -73,35 +89,45 @@
             <div class="col-md-6" id="month-selector"></div>
         </div>
     </div>
+
+    <!----------------- SECTION 1 --------------------------------->
     <!----------------- Total rain fall and sunlight -------------->
 
+<div id="section1" class="container-fluid">
 
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
             <h4 class="graph-title">Total Rainfall Each Year (In ml)</h4>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6">
-            <h4 class"graph-title">Total Sunlight Each Year (In Hours)</h4>
+            <h4 class "graph-title">Total Sunlight Each Year (In Hours)</h4>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-rain-per-year"></div>
         <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-sunlight-per-year"></div>
     </div>
+    </div>
+    
+    <!----------------- SECTION 2 --------------------------------->
     <!----------------- Gust Scatter Plot -------------->
+<div id="section2" class="container-fluid">
 
     <div class="row">
-        <div class="col-md-offset-3"><h3>Highest Gust (in Knots) Every Month for 10 Years</h3></div>
+        <div class="col-md-offset-3">
+            <h3>Highest Gust (in Knots) Every Month for 10 Years</h3>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-offset-2" id="maxgt-scatter-plot"></div>
     </div>
+    </div>
 
 
-
+    <!----------------- SECTION 3 --------------------------------->
     <!----------- PIE CHART AND AVG TEMP BAR CHART -------------->
 
-
+<div id="section3" class="container-fluid">
 
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
@@ -115,18 +141,25 @@
         <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-temp-piechart"></div>
         <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-max-temp-test"></div>
     </div>
+    </div>
 
 
-
+    <!----------------- SECTION 4--------------------------------->
     <!----------- AVG MEAN AIR TEMP LINE GRAPH -------------->
 
+<div id="section4" class="container-fluid">
+
     <div class="row">
-        <div class="col-md-offset-2"><h4>Average Mean Air Tem</h4></div>
+        <div class="col-md-offset-2">
+            <h4>Average Mean Air Tem</h4>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-offset-2" id="avg_air_temp_line"></div>
     </div>
+    </div>
 
+    <!----------------- BOILDER PLATE --------------------------------->
 
     <div class="row">
         <div class="col-md-4">ONE THIRD</div>
@@ -134,9 +167,9 @@
         <div class="col-md-4">THREE THIRDS.</div>
     </div>
     <div class="row">
-        <div class="col-md-4" id="gender-balance"></div>
-        <div class="col-md-4" id="average-salary"></div>
-        <div class="col-md-4" id="rank-distribution"></div>
+        <div class="col-md-4" id="one"></div>
+        <div class="col-md-4" id="two"></div>
+        <div class="col-md-4" id="three"></div>
     </div>
 
 
@@ -159,13 +192,18 @@
 
     <!-----------------GOOGLE MAPS -------------->
 
+<div id="" class="container-fluid">
+
     <div class="row">
-        <div class="col-md-12"><h3>Shannon Airport Map</h3></div>
+        <div class="col-md-12">
+            <h3>Shannon Airport Map</h3>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12" id="map"></div>
     </div>
     </div>
+    
 
     <!----------------- FOOTER -------------->
 
@@ -174,14 +212,14 @@
             <div id="footer">
 
                 <div class="col-md-6">
-                    <p class="footer-text"> GOOGLE MAP GOES HERE</p>
+                    <p class="footer-text">Copyright Jessica Devine </p>
 
                 </div>
 
 
 
                 <div class="col-md-6">
-                    <p class="footer-text">Copyright Jessica Devine</p>
+                    <p class="footer-text"></p>
                 </div>
             </div>
         </div>
@@ -194,6 +232,13 @@
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd3vd1Y1mS2MoYOUFnsR_45BTVZEQfwzo&callback=initMap"></script>
     <script src="static/js/maps.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    </div>
+
+    <script src="static/js/script.js"></script>
+
 </body>
 
 </html>
