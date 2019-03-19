@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+
 /* --- BODY ----*/
+
+body {
+font-family: 'Source Sans Pro', sans-serif;
+font-weight: 200;
+}
+
 
 .div {
     padding-top: 20px;
@@ -11,8 +20,9 @@
 }
 
 #navbar-text {
+ 
    color: white; 
-
+    
 }
 
 /* --- SELECTOR ----*/

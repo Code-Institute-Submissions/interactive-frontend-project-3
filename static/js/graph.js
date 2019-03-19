@@ -79,7 +79,7 @@ function show_total_rainfall(ndx) {
 
 
     dc.barChart("#total-rain-per-year")
-        .width(500)
+        .width(450)
         .height(300)
         .margins({ top: 40, right: 50, bottom: 30, left: 70 })
         .dimension(year_dim)
@@ -94,9 +94,8 @@ function show_total_rainfall(ndx) {
         .elasticY(true)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .xAxisLabel("Years")
         .yAxis().ticks(12);
-        
+
 
 
 }
@@ -113,19 +112,18 @@ function show_total_sunlight(ndx) {
 
 
     dc.barChart("#total-sunlight-per-year")
-        .width(500)
+        .width(450)
         .height(300)
         .margins({ top: 40, right: 50, bottom: 30, left: 70 })
         .elasticY(true)
         .dimension(year_dim)
         .group(total_sunlight_year_group)
-     //   .valueAccessor(function(d) {
-     //       return d.value.toFixed(1);
-     //   })
+        //   .valueAccessor(function(d) {
+        //       return d.value.toFixed(1);
+        //   })
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .xAxisLabel("Years")
         .yAxis().ticks(12);
 }
 
@@ -277,22 +275,32 @@ function show_avg_bar_chart_test(ndx) {
 
 
 function show_avg_mean_temp_line(ndx) {
+      //  var total_avg_air_temp_group = month_dim.group().reduceSum(dc.pluck('meant'));
 
-    var year_dim = ndx.dimension(dc.pluck('year'));
+
+
+// You will want to encompass these three functions within the reduce() method though. 
+// You will want to edit your group function as well so that you're grouping and then reducing, 
+// with these three functions as the method to the reduce function
 
 
     var month_dim = ndx.dimension(dc.pluck('month'));
     
+    var minDate = month_dim.bottom(1)[0].month;
+    var maxDate = month_dim.top(1)[0].month;
+
     var air_temp_dim = ndx.dimension(dc.pluck('meant'));
 
 
-    var total_avg_air_temp_group = month_dim.group().reduceSum(dc.pluck('meant'));
+    var month_group = month_dim.group();
+    
+  //  var temp_month_group = month_group.reduce( 
+        
 
-    var minDate = month_dim.bottom(1)[0].month;
-    var maxDate = month_dim.top(1)[0].month;
+var newavgAirTempGroup = month_dim.group().reduce(
     
+    function avgAirTempGroup(add_item,remove_item,initialise) {
     
-    //----------CUSTOM REDUCER TEST ONE------------
 
     function add_item(p, v) {
         p.count++;
@@ -316,63 +324,29 @@ function show_avg_mean_temp_line(ndx) {
 
     function initialise() {
         return { count: 0, total: 0, average: 0 };
-    }
     
-    //---TESTING ADDING REDUER INSIDE ANOTHER FUNCTION---------------
-
-     var new_avg_air_temp_group = month_dim.group().reduce(add_item, remove_item, initialise);
-        
-    function avgAirTemp(dimension, meant) {
-        return month_dim.group().reduce(
-            
-        function add_item(p, v) {
-        p.count++;
-        p.total += v.meant;
-        p.average = p.total / p.count;
-        return p;
-    },
-
-    function remove_item(p, v) {
-        p.count--;
-        if (p.count == 0) {
-            p.total = 0;
-            p.average = 0;
-        }
-        else {
-            p.total -= v.meant;
-            p.average = p.total / p.count;
-        }
-        return p;
-    },
-
-    function initialise() {
-        return { count: 0, total: 0, average: 0 };
     }
-
-        //END OF TEST
-        
+    }
         );
-}
+
+    
+
+    
 
 
-var new_new_avg_air_temp = avgAirTemp("meant");
-        //END OF TEST
-        
-        
-//----GRAPH 
+    //----GRAPH 
 
     dc.lineChart("#avg_air_temp_line")
         .width(750)
         .height(300)
         .margins({ top: 10, right: 50, bottom: 30, left: 50 })
         .dimension(month_dim)
-        .group(new_new_avg_air_temp, "meant")
+        .group(newavgAirTempGroup)
         .transitionDuration(500)
         .x(d3.time.scale().domain([minDate, maxDate]))
-      //  .xUnits(dc.units.ordinal)
+        //  .xUnits(dc.units.ordinal)
         .xAxisLabel("Month")
         .brushOn(false)
         .yAxis().ticks(4);
-        
-    
+
 }
