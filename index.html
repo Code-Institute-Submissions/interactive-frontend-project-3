@@ -10,27 +10,17 @@
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css" type="text/css" />
 
 
-
-
-
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
-
     <script type="text/javascript" src="static/js/d3.min.js"></script>
     <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
     <script type="text/javascript" src="static/js/dc.min.js"></script>
     <script type="text/javascript" src="static/js/queue.min.js"></script>
     <script type="text/javascript" src="static/js/graph.js"></script>
 
-
 </head>
-
 
 <body id="clear" data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -46,8 +36,8 @@
       </button>
 
                 <a class="navbar-brand" href="#">
-                                    <i class="fas fa-plane"></i>
-            Shannon Airport Historical Weather Data
+                <i class="fas fa-plane"></i>
+                    Shannon Airport Historical Weather Data
                 </a>
             </div>
             <div>
@@ -56,7 +46,7 @@
                         <li><a href="#section1">Rain & Sunlight</a></li>
                         <li><a href="#section2">Highest Gust</a></li>
                         <li><a href="#section3">Averages</a></li>
-                        <li><a href="#section4">Air Temperature</a></li>
+                        <li><a href="#section4">TBA</a></li>
                         <li><a id="reset" href="javascript:dc.filterAll(); dc.renderAll();">Reset All Charts</a></li>
 
 
@@ -68,191 +58,151 @@
         </div>
     </nav>
 
-
-
-
     <!-----------------GOOGLE MAPS -------------->
 
     <div id="" class="container-fluid">
-
 
         <div class="row test">
             <div class="col-md-12" id="map"></div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12" id="description">
+        <div class="row opening">
+            <div class="col-md-12" id="site-title">
                 <h2>Welcome to 10 years of Shannon Airport Weather Data</h2>
-                <h4>Shannon Airport is one of Ireland's three primary international airports, along with Dublin and Cork.</h4>
-                <p>Below you'll see different types ofs graphs relating to historical weather dats provided by the Irish Government.</p>
-                <p>Enjoy an interactive experience filtering different data!</p>
+            </div>
+            <div class="col-md-6" id="intro">
+                <p>Shannon Airport is one of Ireland's three primary international airports, along with Dublin and Cork. The world’s first Duty Free shop was established at Shannon Airport in 1947. It began as a small kiosk staffed by one woman and today
+                    has grown into a multi-billion dollar retail industry throughout the world! The airport was originally located at Foynes, as a sea-plane base for transatlantic flights. The airport relocated to a land-based facility in 1945
             </div>
 
+            <div class="col-md-6" id="description">
+                <p>How To Use: Below is ten years of historial weather data which can be filtered between months and years. By clicking on different sections of the graph you can change between months and years. You can also use the selector buttons
+                    at the top and a reset button that resides in the navigation bar. Enjoy an interactive experience filtering different types of historial weather data!</p>
+            </div>
         </div>
+    </div>
 
-        <!----------------- GRAPHS CONTAINER -------------->
+    <!----------------- GRAPHS CONTAINER -------------->
 
-        <div class="container-fluid selector">
+    <div class="container-fluid selector">
 
-            <!----------------- Year Selector------------>
+        <!----------------- Year Selector------------>
 
-            <div class="row">
-                <div class="col-md-6 year-selector">
-                    <h4>Select Year:</h4>
-                </div>
-            
-
-
-            
-                <div class="col-md-6 year-selector">
-                    <h4>Select Month:</h4>
-                </div>
+        <div class="row">
+            <div class="col-md-6 year-selector">
+                <h4>Select Year:</h4>
             </div>
 
-
-
-
-           
-
-                <div class="row">
-                    <div class="col-md-6" id="year-selector"></div>
-                
-
-                
-                    <div class="col-md-6" id="month-selector"></div>
-                </div>
-            </div>
-
-
-
-
-        <!----------------- SECTION 1 --------------------------------->
-
-        <!----------------- Total rain fall and sunlight -------------->
-
-        <div id="section1" class="container-fluid">
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <h4 class="graph-title">Total Rainfall Each Year (In ml)</h4>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <h4 class "graph-title">Total Sunlight Each Year (In Hours)</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-rain-per-year"></div>
-                <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-sunlight-per-year"></div>
+            <div class="col-md-6 year-selector">
+                <h4>Select Month:</h4>
             </div>
         </div>
 
-        <div id="" class="container-fluid">
+        <div class="row">
+            <div class="col-md-6" id="year-selector"></div>
+            <div class="col-md-6" id="month-selector"></div>
+        </div>
+    </div>
 
 
-            <div class="row">
-                <div class="col-md-12" id="didYouKnow">
-                    <h2>Did you know?</h2>
-                    <h4>Shannon has the longest runway in Ireland at 3,200 metres and is officially </h4 <h4>>designated as an alternate landing strip for the US Space Shuttle, should the need ever arise.</h4>
-                </div>
+    <!----------------- SECTION 1 --------------------------------->
+
+    <div id="section1" class="container-fluid">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h4 class="graph-title">Total Rainfall Each Year (In ml)</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h4 class "graph-title">Total Sunlight Each Year (In Hours)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-rain-per-year"></div>
+            <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-sunlight-per-year"></div>
+        </div>
+    </div>
+
+
+
+    <!----------------- SECTION 2 --------------------------------->
+    <div id="section2" class="container-fluid">
+
+
+
+        <div class="row gustinfo">
+            <div class="col-md-3 gustinfo">
+                <h4>How does the wind affect flights?</h4>
+                <p>In aviation, speed is measured in Knots (Nautical Miles Per Hour). This is converted to Miles Per Hour (mph) by multiplying it by 1.15. The maximum wind limits for commercial aircraft depend on the aircraft, airport and the direction of
+                    the wind compared to the direction of the take-off or landing. For take off and landing, aircraft have different limitations, and these are again split up into dry, wet or contaminated runway limitations. A contaminated runway is where
+                    is there is snow, ice or standing water on the runway.</p>
+                <p>As a general rule, most airline aircraft have a demonstrated crosswind limit of 30-35 knots.</p>
+                <p>The 99 mh (86 knots) gust at Shannon Airport in 2014 (in Red) was the highest February value recorded since 1945 and the highest overall since 1961 as a Result of Storm Darwin in 2014</p>
+            </div>
+            <div class="col-md-9">
+                <h3>Highest Gust Every Month for 10 Years</h3>
+                <p>Hover to see each year</p>
+            </div>
+
+            <div class="col-md-9" id="maxgt-scatter-plot"></div>
+        </div>
+    </div>
+
+
+    <!----------------- SECTION 3 --------------------------------->
+
+    <div id="section3" class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-offset-3">
+                <h3>Average Air Temp Per Month</h3>
+            </div>
+        </div>
+        <div class="row air-temp">
+            <div class="col-md-offset-2" id="avg-air-temp"></div>
+        </div>
+    </div>
+
+
+    <!----------------- SECTION 4--------------------------------->
+    <!----------- AVG MEAN AIR TEMP LINE GRAPH -------------->
+
+    <div id="section4" class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-offset-2">
+                <h4>LAST GRAPTH BOILERPLATE</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-2" id=""></div>
+        </div>
+    </div>
+
+
+    <!----------------- FOOTER -------------->
+
+
+    <div class="row">
+        <div id="footer">
+
+            <div class="col-md-6">
+                <p class="footer-text"></p>
 
             </div>
 
-
-            <!----------------- SECTION 2 --------------------------------->
-            <!----------------- Gust Scatter Plot -------------->
-            <div id="section2" class="container-fluid">
-
-                <div class="row">
-                    <div class="col-md-offset-3">
-                        <h3>Highest Gust (in Knots) Every Month for 10 Years</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-offset-2" id="maxgt-scatter-plot"></div>
-                </div>
+            <div class="col-md-6">
+                <p class="footer-text">Copyright Jessica Devine </p>
             </div>
+        </div>
+    </div>
 
 
-            <!----------------- SECTION 3 --------------------------------->
-            <!----------- PIE CHART AND AVG TEMP BAR CHART -------------->
-
-            <div id="section3" class="container-fluid">
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <h4>Average Max & Min Temp</h4>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <h4>Average Max Temp</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-temp-piechart"></div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-max-temp-test"></div>
-                </div>
-            </div>
-
-
-            <!----------------- SECTION 4--------------------------------->
-            <!----------- AVG MEAN AIR TEMP LINE GRAPH -------------->
-
-            <div id="section4" class="container-fluid">
-
-                <div class="row">
-                    <div class="col-md-offset-2">
-                        <h4>Average Mean Air Temperature</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-offset-2" id="avg_air_temp_line"></div>
-                </div>
-            </div>
-
-            <!----------------- BOILDER PLATE --------------------------------->
-
-            <div class="row">
-                <div class="col-md-4">ONE THIRD</div>
-                <div class="col-md-4">TWO THIRDS</div>
-                <div class="col-md-4">THREE THIRDS.</div>
-            </div>
-            <div class="row">
-                <div class="col-md-4" id="one"></div>
-                <div class="col-md-4" id="two"></div>
-                <div class="col-md-4" id="three"></div>
-            </div>
-
-
-
-
-
-            <!----------------- FOOTER -------------->
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div id="footer">
-
-                        <div class="col-md-6">
-                            <p class="footer-text">Copyright Jessica Devine </p>
-
-                        </div>
-
-
-
-                        <div class="col-md-6">
-                            <p class="footer-text"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd3vd1Y1mS2MoYOUFnsR_45BTVZEQfwzo&callback=initMap"></script>
-            <script src="static/js/maps.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-            <script src="static/js/script.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd3vd1Y1mS2MoYOUFnsR_45BTVZEQfwzo&callback=initMap"></script>
+    <script src="static/js/maps.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="static/js/script.js"></script>
 
 </body>
 

@@ -25,6 +25,34 @@ font-weight: 200;
   
 }
 
+#reset {
+    font-weight: bolder;
+  
+}
+
+/* --- Intro and description ----*/
+
+.opening {
+    font-weight: lighter;
+    color: gray;
+    
+}
+#intro {
+    text-align: left;
+}
+
+
+#description {
+   
+    text-align: right;
+}
+
+#site-title {
+    text-align: center;
+
+}
+
+
 /* --- GOOGLE MAPS ----*/
 
 
@@ -39,19 +67,6 @@ font-weight: 200;
     padding-top: 50px;
 }
 
-#description {
-    font-weight: lighter;
-    font-size: larger;
-    text-align: center;
-    color: gray;
-}
-
-#didYouKnow {
-    font-weight: lighter;
-    font-size: larger;
-    text-align: center;
-    color: gray;
-}
 
 /* --- SELECTOR ----*/
 
@@ -63,25 +78,43 @@ font-weight: 200;
 /* --- SECTION 1 ----*/
 
 .graph-title {
-    padding-left: 20px;
+    padding-left: 20px; 
 }
 
 
 /* --- SECTION 2 ----*/
 
+.gustinfo {
+    padding-top: 20px;
+}
+
 /* --- SECTION 3 ----*/
+
+.bar {
+    width: 28px;
+} 
+
+.air-temp {
+    padding-bottom: 500px;
+}
 
 
 /* --- FOOTER ----*/
 
+.footertest {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 
 #footer {
-    height: 40px;
+    height: 30px;
     background-color: #1a6ecc;
 }
 
 .footer-text {
     color: white;
+    text-align: right;
 }
 
 

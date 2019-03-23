@@ -28,9 +28,7 @@ function makeGraphs(error, airportData) {
     show_total_rainfall(ndx);
     show_total_sunlight(ndx);
     show_gust_scatter_plot(ndx);
-    show_avg_temp_piechart(ndx);
     show_avg_bar_chart_test(ndx);
-    show_avg_mean_temp_line(ndx);
 
     dc.renderAll();
 }
@@ -44,11 +42,10 @@ function makeGraphs(error, airportData) {
 function show_year_selector(ndx) {
 
     var dim = ndx.dimension(dc.pluck('year'));
-    var group = dim.group();
 
     dc.selectMenu("#year-selector")
         .dimension(dim)
-        .group(group);
+        .group(dim.group());
 }
 
 //--------- MONTH SELECTOR (NEEDS FORMATTING) -----------
@@ -59,6 +56,8 @@ function show_month_selector(ndx) {
         return [d.month];
     });
 
+    //  var month = ndx.dimension(dc.pluck('month'));
+
     var minMonth = month.bottom(1)[0].month;
     var maxMonth = month.top(1)[0].month;
 
@@ -66,8 +65,7 @@ function show_month_selector(ndx) {
 
     dc.selectMenu("#month-selector")
         .dimension(month)
-        .group(group)
-        .label([minMonth, maxMonth]);
+        .group(group);
 }
 
 //----------- TOTAL RAINFULL BAR CHART -------
@@ -175,135 +173,20 @@ function show_gust_scatter_plot(ndx) {
 
 }
 
-//------ AVERAGE MAX & MIN TEMP PIE CHART NOT WORKING--------
-
-
-function show_avg_temp_piechart(ndx) {
-
-    var maxtemp_dim = ndx.dimension(dc.pluck('maxtp'));
-    var mintemp_dim = ndx.dimension(dc.pluck('mintp'));
-
-    var max_temp_dim = ndx.dimension(function(d) {
-        return d.maxtp;
-    });
-
-    var min_temp_dim = ndx.dimension(function(d) {
-        return d.mintp;
-    });
-
-
-
-    //  var new_maxtemp_dim = ndx.dimension(function(d) {
-    //        return [d.maxgt, d.year];
-    //  });
-
-    //   var new_maxtemp_group = new_maxtemp_dim.group().reduceSum(dc.pluck('maxgt'))
-
-    var maxtemp_group = maxtemp_dim.group();
-
-    var mintemp_group = mintemp_dim.group();
-
-
-    dc.pieChart('#avg-temp-piechart')
-        .height(400)
-        .radius(100)
-        .transitionDuration(1500)
-        .dimension(maxtemp_dim)
-        .group(maxtemp_group);
-
-
-
-    dc.pieChart('#per-store-chart')
-        .height(400)
-        .radius(100)
-        .transitionDuration(1500)
-        .dimension(mintemp_dim)
-        .group(mintemp_group);
-
-}
-
-
 //----- AVERAGES BAR CHART MAX TEMP------
 
 function show_avg_bar_chart_test(ndx) {
+
     var year_dim = ndx.dimension(dc.pluck('year'));
 
+    var month_dim = ndx.dimension(function(d) {
+        return d.month;
+    });
+
+    var min_date = month_dim.bottom(1)[0].month;
+    var max_date = month_dim.top(1)[0].month;
 
     // Custom Reducer
-    function add_item(p, v) {
-        p.count++;
-        p.total += v.maxtp;
-        p.average = p.total / p.count;
-        return p;
-    }
-
-    function remove_item(p, v) {
-        p.count--;
-        if (p.count == 0) {
-            p.total = 0;
-            p.average = 0;
-        }
-        else {
-            p.total -= v.maxtp;
-            p.average = p.total / p.count;
-        }
-        return p;
-    }
-
-    function initialise() {
-        return { count: 0, total: 0, average: 0 };
-    }
-
-    var avgMaxTempPerYear = year_dim.group().reduce(add_item, remove_item, initialise);
-
-    dc.barChart("#avg-max-temp-test")
-        .width(500)
-        .height(300)
-        .margins({ top: 50, right: 50, bottom: 30, left: 50 })
-        .dimension(year_dim)
-        .group(avgMaxTempPerYear)
-        .valueAccessor(function(d) {
-            return d.value.average.toFixed(2);
-        })
-        .transitionDuration(500)
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .xAxisLabel("Years")
-        .yAxis().ticks(4);
-}
-
-
-//----- AVG MEAN AIR TEMP LINE GRAPH------
-
-
-function show_avg_mean_temp_line(ndx) {
-      //  var total_avg_air_temp_group = month_dim.group().reduceSum(dc.pluck('meant'));
-
-
-
-// You will want to encompass these three functions within the reduce() method though. 
-// You will want to edit your group function as well so that you're grouping and then reducing, 
-// with these three functions as the method to the reduce function
-
-
-    var month_dim = ndx.dimension(dc.pluck('month'));
-    
-    var minDate = month_dim.bottom(1)[0].month;
-    var maxDate = month_dim.top(1)[0].month;
-
-    var air_temp_dim = ndx.dimension(dc.pluck('meant'));
-
-
-    var month_group = month_dim.group();
-    
-  //  var temp_month_group = month_group.reduce( 
-        
-
-var newavgAirTempGroup = month_dim.group().reduce(
-    
-    function avgAirTempGroup(add_item,remove_item,initialise) {
-    
-
     function add_item(p, v) {
         p.count++;
         p.total += v.meant;
@@ -326,29 +209,25 @@ var newavgAirTempGroup = month_dim.group().reduce(
 
     function initialise() {
         return { count: 0, total: 0, average: 0 };
-    
     }
-    }
-        );
 
-    
-
-    
+    var avgMaxTempPerYear = year_dim.group().reduce(add_item, remove_item, initialise);
+    var avgAirTempMonth = month_dim.group().reduce(add_item, remove_item, initialise);
 
 
-    //----GRAPH 
-
-    dc.lineChart("#avg_air_temp_line")
-        .width(750)
-        .height(300)
-        .margins({ top: 10, right: 50, bottom: 30, left: 50 })
+    dc.barChart("#avg-air-temp")
+        .width(768)
+        .height(500)
+        .margins({ top: 50, right: 50, bottom: 30, left: 50 })
         .dimension(month_dim)
-        .group(newavgAirTempGroup)
+        .group(avgAirTempMonth)
+        .valueAccessor(function(d) {
+            return d.value.average;
+        })
         .transitionDuration(500)
-        .x(d3.time.scale().domain([minDate, maxDate]))
+        .x(d3.time.scale().domain([min_date, max_date]))
+        .x(d3.time.scale().domain([min_date, d3.time.month.offset(max_date, 1)])) 
         //  .xUnits(dc.units.ordinal)
-        .xAxisLabel("Month")
         .brushOn(false)
-        .yAxis().ticks(4);
-
+        .yAxis().ticks(6);
 }
