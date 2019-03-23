@@ -32,9 +32,10 @@ function makeGraphs(error, airportData) {
     show_avg_bar_chart_test(ndx);
     show_avg_mean_temp_line(ndx);
 
-
     dc.renderAll();
 }
+
+
 
 
 
@@ -65,7 +66,8 @@ function show_month_selector(ndx) {
 
     dc.selectMenu("#month-selector")
         .dimension(month)
-        .group(group);
+        .group(group)
+        .label([minMonth, maxMonth]);
 }
 
 //----------- TOTAL RAINFULL BAR CHART -------

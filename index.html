@@ -32,19 +32,19 @@
 </head>
 
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body id="clear" data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <!----------------- NAV BAR -------------->
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
-            <div id"navbar-text" class="navbar-header">
+            <div id "navbar-text" class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
       </button>
-      
+
                 <a class="navbar-brand" href="#">
                                     <i class="fas fa-plane"></i>
             Shannon Airport Historical Weather Data
@@ -57,9 +57,11 @@
                         <li><a href="#section2">Highest Gust</a></li>
                         <li><a href="#section3">Averages</a></li>
                         <li><a href="#section4">Air Temperature</a></li>
+                        <li><a id="reset" href="javascript:dc.filterAll(); dc.renderAll();">Reset All Charts</a></li>
 
-                            </ul>
-                        </li>
+
+                    </ul>
+                    </li>
                     </ul>
                 </div>
             </div>
@@ -67,180 +69,190 @@
     </nav>
 
 
-    </nav>
 
 
+    <!-----------------GOOGLE MAPS -------------->
+
+    <div id="" class="container-fluid">
 
 
-    <!----------------- GRAPHS CONTAINER -------------->
-
-    <div class="container-fluid selector">
-
-        <!----------------- Year Selector ------------>
+        <div class="row test">
+            <div class="col-md-12" id="map"></div>
+        </div>
 
         <div class="row">
-            <div class="col-md-6 year-selector">
-                <h4>Select Year:</h4>
+            <div class="col-md-12" id="description">
+                <h2>Welcome to 10 years of Shannon Airport Weather Data</h2>
+                <h4>Shannon Airport is one of Ireland's three primary international airports, along with Dublin and Cork.</h4>
+                <p>Below you'll see different types ofs graphs relating to historical weather dats provided by the Irish Government.</p>
+                <p>Enjoy an interactive experience filtering different data!</p>
             </div>
 
+        </div>
+
+        <!----------------- GRAPHS CONTAINER -------------->
+
+        <div class="container-fluid selector">
+
+            <!----------------- Year Selector------------>
+
             <div class="row">
+                <div class="col-md-6 year-selector">
+                    <h4>Select Year:</h4>
+                </div>
+            
+
+
+            
                 <div class="col-md-6 year-selector">
                     <h4>Select Month:</h4>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6" id="year-selector"></div>
-
-
-            <div class="col-md-6" id="month-selector"></div>
-        </div>
-    </div>
-
-    <!----------------- SECTION 1 --------------------------------->
-    <!----------------- Total rain fall and sunlight -------------->
-
-<div id="section1" class="container-fluid">
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <h4 class="graph-title">Total Rainfall Each Year (In ml)</h4>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <h4 class "graph-title">Total Sunlight Each Year (In Hours)</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-rain-per-year"></div>
-        <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-sunlight-per-year"></div>
-    </div>
-    </div>
-    
-    <!----------------- SECTION 2 --------------------------------->
-    <!----------------- Gust Scatter Plot -------------->
-<div id="section2" class="container-fluid">
-
-    <div class="row">
-        <div class="col-md-offset-3">
-            <h3>Highest Gust (in Knots) Every Month for 10 Years</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-offset-2" id="maxgt-scatter-plot"></div>
-    </div>
-    </div>
-
-
-    <!----------------- SECTION 3 --------------------------------->
-    <!----------- PIE CHART AND AVG TEMP BAR CHART -------------->
-
-<div id="section3" class="container-fluid">
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <h4>Average Max & Min Temp</h4>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <h4>Average Max Temp</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-temp-piechart"></div>
-        <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-max-temp-test"></div>
-    </div>
-    </div>
-
-
-    <!----------------- SECTION 4--------------------------------->
-    <!----------- AVG MEAN AIR TEMP LINE GRAPH -------------->
-
-<div id="section4" class="container-fluid">
-
-    <div class="row">
-        <div class="col-md-offset-2">
-            <h4>Average Mean Air Temperature</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-offset-2" id="avg_air_temp_line"></div>
-    </div>
-    </div>
-
-    <!----------------- BOILDER PLATE --------------------------------->
-
-    <div class="row">
-        <div class="col-md-4">ONE THIRD</div>
-        <div class="col-md-4">TWO THIRDS</div>
-        <div class="col-md-4">THREE THIRDS.</div>
-    </div>
-    <div class="row">
-        <div class="col-md-4" id="one"></div>
-        <div class="col-md-4" id="two"></div>
-        <div class="col-md-4" id="three"></div>
-    </div>
 
 
 
 
-    <!-----------------DID YOU KNOW POP OUTS -------------->
+           
 
+                <div class="row">
+                    <div class="col-md-6" id="year-selector"></div>
+                
 
-    <div class="row">
-        <div id="didyouknow">
-
-
-            <div class="col-md-6">
-            </div>
-
-            <div class="col-md-6">
-            </div>
-        </div>
-    </div>
-
-    <!-----------------GOOGLE MAPS -------------->
-
-<div id="" class="container-fluid">
-
-    <div class="row">
-        <div class="col-md-12">
-            <h3>Shannon Airport Map</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12" id="map"></div>
-    </div>
-    </div>
-    
-
-    <!----------------- FOOTER -------------->
-
-    <div class="container-fluid">
-        <div class="row">
-            <div id="footer">
-
-                <div class="col-md-6">
-                    <p class="footer-text">Copyright Jessica Devine </p>
-
-                </div>
-
-
-
-                <div class="col-md-6">
-                    <p class="footer-text"></p>
+                
+                    <div class="col-md-6" id="month-selector"></div>
                 </div>
             </div>
+
+
+
+
+        <!----------------- SECTION 1 --------------------------------->
+
+        <!----------------- Total rain fall and sunlight -------------->
+
+        <div id="section1" class="container-fluid">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <h4 class="graph-title">Total Rainfall Each Year (In ml)</h4>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <h4 class "graph-title">Total Sunlight Each Year (In Hours)</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-rain-per-year"></div>
+                <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="total-sunlight-per-year"></div>
+            </div>
         </div>
-    </div>
+
+        <div id="" class="container-fluid">
+
+
+            <div class="row">
+                <div class="col-md-12" id="didYouKnow">
+                    <h2>Did you know?</h2>
+                    <h4>Shannon has the longest runway in Ireland at 3,200 metres and is officially </h4 <h4>>designated as an alternate landing strip for the US Space Shuttle, should the need ever arise.</h4>
+                </div>
+
+            </div>
+
+
+            <!----------------- SECTION 2 --------------------------------->
+            <!----------------- Gust Scatter Plot -------------->
+            <div id="section2" class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-offset-3">
+                        <h3>Highest Gust (in Knots) Every Month for 10 Years</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-2" id="maxgt-scatter-plot"></div>
+                </div>
+            </div>
+
+
+            <!----------------- SECTION 3 --------------------------------->
+            <!----------- PIE CHART AND AVG TEMP BAR CHART -------------->
+
+            <div id="section3" class="container-fluid">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <h4>Average Max & Min Temp</h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <h4>Average Max Temp</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-temp-piechart"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 number-box graph" id="avg-max-temp-test"></div>
+                </div>
+            </div>
+
+
+            <!----------------- SECTION 4--------------------------------->
+            <!----------- AVG MEAN AIR TEMP LINE GRAPH -------------->
+
+            <div id="section4" class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-offset-2">
+                        <h4>Average Mean Air Temperature</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-2" id="avg_air_temp_line"></div>
+                </div>
+            </div>
+
+            <!----------------- BOILDER PLATE --------------------------------->
+
+            <div class="row">
+                <div class="col-md-4">ONE THIRD</div>
+                <div class="col-md-4">TWO THIRDS</div>
+                <div class="col-md-4">THREE THIRDS.</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" id="one"></div>
+                <div class="col-md-4" id="two"></div>
+                <div class="col-md-4" id="three"></div>
+            </div>
 
 
 
 
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd3vd1Y1mS2MoYOUFnsR_45BTVZEQfwzo&callback=initMap"></script>
-    <script src="static/js/maps.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="static/js/script.js"></script>
+
+            <!----------------- FOOTER -------------->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="footer">
+
+                        <div class="col-md-6">
+                            <p class="footer-text">Copyright Jessica Devine </p>
+
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            <p class="footer-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd3vd1Y1mS2MoYOUFnsR_45BTVZEQfwzo&callback=initMap"></script>
+            <script src="static/js/maps.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <script src="static/js/script.js"></script>
 
 </body>
 
