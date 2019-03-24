@@ -7,11 +7,12 @@ function makeGraphs(error, airportData) {
 
     // -------- FORMATTING DATA ---------
 
-    var parseMonth = d3.time.format("%m").parse;
+   var parseMonth = d3.time.format("%m").parse;
     var parseYear = d3.time.format("%y").parse;
 
 
     airportData.forEach(function(d) {
+        d.newmonth = parseInt(d.month);
         d.month = parseMonth(d.month);
         d.year = parseInt(d.year);
         d.maxtp = parseInt(d.maxtp);
@@ -53,19 +54,41 @@ function show_year_selector(ndx) {
 function show_month_selector(ndx) {
 
     var month = ndx.dimension(function(d) {
-        return [d.month];
-    });
+       return [d.month];
+  });
 
-    //  var month = ndx.dimension(dc.pluck('month'));
 
-    var minMonth = month.bottom(1)[0].month;
-    var maxMonth = month.top(1)[0].month;
 
-    var group = month.group();
+  var titlemonth = ndx.dimension(function(d) {
 
-    dc.selectMenu("#month-selector")
-        .dimension(month)
-        .group(group);
+
+	let m = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+	 	'August', 'September', 'October', 'November', 'December'];
+       
+       return m[d.newmonth-1];
+       
+   });
+
+  //   var titlemonth = ndx.dimension(function(d) {
+//	 let res = d.newmonth;
+    // res = m[res-1];
+//	 console.log(res);
+//	 console.log(typeof(res));
+//	 return res;
+  //  });
+
+  //  console.log(titlemonth);
+   
+   var group = titlemonth.group();
+        
+    
+
+    dc.selectMenu('#month-selector')
+        .dimension(titlemonth)
+        .group(group)
+        .order();
+    
+     
 }
 
 //----------- TOTAL RAINFULL BAR CHART -------
@@ -130,6 +153,8 @@ function show_total_sunlight(ndx) {
 //------ GUST CATTER PLOT --------
 
 function show_gust_scatter_plot(ndx) {
+    
+  
 
     var month_dim = ndx.dimension(function(d) {
         return d.month;
@@ -225,8 +250,8 @@ function show_avg_bar_chart_test(ndx) {
             return d.value.average;
         })
         .transitionDuration(500)
-        .x(d3.time.scale().domain([min_date, max_date]))
-        .x(d3.time.scale().domain([min_date, d3.time.month.offset(max_date, 1)])) 
+        //  .x(d3.time.scale().domain([min_date, max_date]))
+        .x(d3.time.scale().domain([min_date, d3.time.month.offset(max_date, 1)]))
         //  .xUnits(dc.units.ordinal)
         .brushOn(false)
         .yAxis().ticks(6);
