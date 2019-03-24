@@ -70,12 +70,13 @@
             <div class="col-md-12" id="site-title">
                 <h2>Welcome to 10 years of Shannon Airport Weather Data</h2>
             </div>
-            <div class="col-md-6" id="intro">
-                <p>Shannon Airport is one of Ireland's three primary international airports, along with Dublin and Cork. The world’s first Duty Free shop was established at Shannon Airport in 1947. It began as a small kiosk staffed by one woman and today
-                    has grown into a multi-billion dollar retail industry throughout the world! The airport was originally located at Foynes, as a sea-plane base for transatlantic flights. The airport relocated to a land-based facility in 1945
+            <div class="col-md-12" id="intro">
+                <p>Shannon Airport is one of Ireland's three primary international airports, along with Dublin and Cork. The airport was originally located at Foynes, as a sea-plane base for transatlantic flights. The airport relocated to a land-based facility in 1945
+           The world’s first Duty Free shop was established at Shannon Airport in 1947. It began as a small kiosk staffed by one woman and today
+                    has grown into a multi-billion dollar retail industry throughout the world! </p>
             </div>
 
-            <div class="col-md-6" id="description">
+            <div class="col-md-12" id="description">
                 <p>How To Use: Below is ten years of historial weather data which can be filtered between months and years. By clicking on different sections of the graph you can change between months and years. You can also use the selector buttons
                     at the top and a reset button that resides in the navigation bar. Enjoy an interactive experience filtering different types of historial weather data!</p>
             </div>
@@ -86,26 +87,21 @@
 
     <div class="container-fluid selector">
 
-        <!----------------- Year Selector------------>
+        <!----------------- Month Selector------------>
+
+            <div class="col-md-offset-5">
+                <h4>Filter Month:</h4>
+            </div>
+        
 
         <div class="row">
-            <div class="col-md-6 year-selector">
-                <h4>Select Year:</h4>
-            </div>
-
-            <div class="col-md-6 year-selector">
-                <h4>Select Month:</h4>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6" id="year-selector"></div>
-            <div class="col-md-6" id="month-selector"></div>
+            
+            <div class="col-md-offset-5" id="month-selector"></div>
         </div>
     </div>
 
 
-    <!----------------- SECTION 1 --------------------------------->
+    <!----------------- SECTION 1 total rain and sunlight --------------------------------->
 
     <div id="section1" class="container-fluid">
 
@@ -125,47 +121,71 @@
 
 
 
-    <!----------------- SECTION 2 --------------------------------->
+    <!----------------- SECTION 2  GUST--------------------------------->
     <div id="section2" class="container-fluid">
 
 
 
         <div class="row gustinfo">
-            <div class="col-md-3 gustinfo">
-                <h4>How does the wind affect flights?</h4>
+            <div class="col-md-4 gustinfo">
+                
+                <h3>How does the wind affect flights?</h3>
+                
+                 <div id="year-selector">
+                    <p>Filter Year:</p>
+                </div>
                 <p>In aviation, speed is measured in Knots (Nautical Miles Per Hour). This is converted to Miles Per Hour (mph) by multiplying it by 1.15. The maximum wind limits for commercial aircraft depend on the aircraft, airport and the direction of
                     the wind compared to the direction of the take-off or landing. For take off and landing, aircraft have different limitations, and these are again split up into dry, wet or contaminated runway limitations. A contaminated runway is where
                     is there is snow, ice or standing water on the runway.</p>
                 <p>As a general rule, most airline aircraft have a demonstrated crosswind limit of 30-35 knots.</p>
                 <p>The 99 mh (86 knots) gust at Shannon Airport in 2014 (in Red) was the highest February value recorded since 1945 and the highest overall since 1961 as a Result of Storm Darwin in 2014</p>
+                
             </div>
-            <div class="col-md-9">
+            
+            <div class="col-md-8 gustchart">
                 <h3>Highest Gust Every Month for 10 Years</h3>
                 <p>Hover to see each year</p>
             </div>
 
-            <div class="col-md-9" id="maxgt-scatter-plot"></div>
+            <div class="col-md-8 gustchart" id="maxgt-scatter-plot"></div>
         </div>
     </div>
 
 
-    <!----------------- SECTION 3 --------------------------------->
+    <!----------------- SECTION 3 AVG AIR TEMP--------------------------------->
 
     <div id="section3" class="container-fluid">
 
+      
         <div class="row">
-            <div class="col-md-offset-3">
-                <h3>Average Air Temp Per Month</h3>
+            
+            <div class="col-md-8">
+                <h3>Highest Gust Every Month for 10 Years</h3>
+                <p>Hover to see each year</p>
+           
+                        <div class="col-md-8" id="avg-air-temp"></div>
+
+             </div>
+             <div class="col-md-4">
+                
+                <h3>How does the air temp affect air travel?</h3>
+                
+                 <div id="year-selector">
+                    <p>Filter Year:</p>
+                </div>
+                <p>In aviation, speed is measured in Knots (Nautical Miles Per Hour). This is converted to Miles Per Hour (mph) by multiplying it by 1.15. The maximum wind limits for commercial aircraft depend on the aircraft, airport and the direction of
+                    the wind compared to the direction of the take-off or landing. For take off and landing, aircraft have different limitations, and these are again split up into dry, wet or contaminated runway limitations. A contaminated runway is where
+                    is there is snow, ice or standing water on the runway.</p>
+                <p>As a general rule, most airline aircraft have a demonstrated crosswind limit of 30-35 knots.</p>
+                <p>The 99 mh (86 knots) gust at Shannon Airport in 2014 (in Red) was the highest February value recorded since 1945 and the highest overall since 1961 as a Result of Storm Darwin in 2014</p>
+                
             </div>
-        </div>
-        <div class="row air-temp">
-            <div class="col-md-offset-2" id="avg-air-temp"></div>
+
         </div>
     </div>
 
 
     <!----------------- SECTION 4--------------------------------->
-    <!----------- AVG MEAN AIR TEMP LINE GRAPH -------------->
 
     <div id="section4" class="container-fluid">
 

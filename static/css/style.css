@@ -6,6 +6,7 @@
 body {
 font-family: 'Source Sans Pro', sans-serif;
 font-weight: 200;
+color: gray;
 }
 
 
@@ -35,23 +36,31 @@ font-weight: 200;
 .opening {
     font-weight: lighter;
     color: gray;
+    text-align: center;
+
     
 }
 #intro {
-    text-align: left;
+    
+       text-align: center;
+
 }
 
 
 #description {
    
-    text-align: right;
+    text-align: center;
 }
 
 #site-title {
-    text-align: center;
 
 }
 
+/* --- Month Selector ----*/
+
+#month-selector {
+    padding-bottom: 20px;
+}
 
 /* --- GOOGLE MAPS ----*/
 
@@ -68,24 +77,45 @@ font-weight: 200;
 }
 
 
-/* --- SELECTOR ----*/
+/* ---Year SELECTOR ----*/
 
-.selector {
-    padding-top: 10px;
+#year-selector {
+    float: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.center {
+    text-align: none;
+}
+
+/* --- Month Selector ----*/
+
+#month-selector {
+    padding-bottom: 20px;
 }
 
 
-/* --- SECTION 1 ----*/
+/* --- SECTION 1 gust----*/
 
 .graph-title {
     padding-left: 20px; 
 }
 
+.gustinfo {
+    padding-left: 20px;
+}
+
+.gustchart {
+    padding-left: 100px;
+}
+
 
 /* --- SECTION 2 ----*/
 
-.gustinfo {
-    padding-top: 20px;
+#maxgt-scatter-plot {
+  padding-right: 70px;
 }
 
 /* --- SECTION 3 ----*/

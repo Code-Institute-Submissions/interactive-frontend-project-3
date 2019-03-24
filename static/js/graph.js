@@ -53,11 +53,6 @@ function show_year_selector(ndx) {
 
 function show_month_selector(ndx) {
 
-    var month = ndx.dimension(function(d) {
-       return [d.month];
-  });
-
-
 
   var titlemonth = ndx.dimension(function(d) {
 
@@ -66,29 +61,15 @@ function show_month_selector(ndx) {
 	 	'August', 'September', 'October', 'November', 'December'];
        
        return m[d.newmonth-1];
-       
    });
 
-  //   var titlemonth = ndx.dimension(function(d) {
-//	 let res = d.newmonth;
-    // res = m[res-1];
-//	 console.log(res);
-//	 console.log(typeof(res));
-//	 return res;
-  //  });
-
-  //  console.log(titlemonth);
-   
+ 
    var group = titlemonth.group();
         
-    
-
     dc.selectMenu('#month-selector')
         .dimension(titlemonth)
-        .group(group)
-        .order();
+        .group(group);
     
-     
 }
 
 //----------- TOTAL RAINFULL BAR CHART -------
@@ -177,8 +158,8 @@ function show_gust_scatter_plot(ndx) {
     var gust_chart = dc.scatterPlot("#maxgt-scatter-plot");
 
     gust_chart
-        .width(768)
-        .height(500)
+        .width(700)
+        .height(450)
         .margins({ top: 40, right: 50, bottom: 30, left: 50 })
         .x(d3.time.scale().domain([min_date, max_date]))
         .brushOn(false)
@@ -241,8 +222,8 @@ function show_avg_bar_chart_test(ndx) {
 
 
     dc.barChart("#avg-air-temp")
-        .width(768)
-        .height(500)
+        .width(700)
+        .height(400)
         .margins({ top: 50, right: 50, bottom: 30, left: 50 })
         .dimension(month_dim)
         .group(avgAirTempMonth)
