@@ -13,18 +13,18 @@
     <link rel="stylesheet" href="static/css/style.css" type="text/css" />
 
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="static/js/d3.min.js"></script>
-    <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
-    <script type="text/javascript" src="static/js/dc.min.js"></script>
-    <script type="text/javascript" src="static/js/queue.min.js"></script>
-    <script type="text/javascript" src="static/js/graph.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="static/js/d3.min.js"></script>
+    <script src="static/js/crossfilter.min.js"></script>
+    <script src="static/js/dc.min.js"></script>
+    <script src="static/js/queue.min.js"></script>
+    <script src="static/js/graph.js"></script>
 
 </head>
 
 <body id="clear" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-    <!----------------- NAV BAR -------------->
+    <!-- ======================== Nav Bar ============================ -->
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -46,21 +46,18 @@
                         <li><a href="#section1">Rain & Sunlight</a></li>
                         <li><a href="#section2">Highest Gust</a></li>
                         <li><a href="#section3">Averages</a></li>
-                        <li><a href="#section4">TBA</a></li>
                         <li><a id="reset" href="javascript:dc.filterAll(); dc.renderAll();">Reset All Charts</a></li>
 
 
-                    </ul>
-                    </li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-----------------GOOGLE MAPS -------------->
+    <!-- ======================== Google Maps ============================ -->
 
-    <div id="" class="container-fluid">
+    <div class="container-fluid">
 
         <div class="row test">
             <div class="col-md-12" id="map"></div>
@@ -71,46 +68,40 @@
                 <h2>Welcome to 10 years of Shannon Airport Weather Data</h2>
             </div>
             <div class="col-md-12" id="intro">
-                <p>Shannon Airport is one of Ireland's three primary international airports, along with Dublin and Cork. The airport was originally located at Foynes, as a sea-plane base for transatlantic flights. The airport relocated to a land-based facility in 1945
-           The world’s first Duty Free shop was established at Shannon Airport in 1947. It began as a small kiosk staffed by one woman and today
-                    has grown into a multi-billion dollar retail industry throughout the world! </p>
+                <p>Shannon Airport is one of Ireland's three primary international airports, along with Dublin and Cork. The airport was originally located at Foynes, as a sea-plane base for transatlantic flights. The airport relocated to a land-based facility
+                    in 1945 The world’s first Duty Free shop was established at Shannon Airport in 1947. It began as a small kiosk staffed by one woman and today has grown into a multi-billion dollar retail industry throughout the world! </p>
             </div>
 
             <div class="col-md-12" id="description">
-                <p>How To Use: Below is ten years of historial weather data which can be filtered between months and years. By clicking on different sections of the graph you can change between months and years. You can also use the selector buttons
-                    at the top and a reset button that resides in the navigation bar. Enjoy an interactive experience filtering different types of historial weather data!</p>
+                <p>How To Use: Below is ten years of historial weather data which can be filtered between months and years. By clicking on different sections of the graph you can change between months and years. You can also use the selector buttons at the
+                    top and a reset button that resides in the navigation bar. Enjoy an interactive experience filtering different types of historial weather data!</p>
             </div>
         </div>
     </div>
 
-    <!----------------- GRAPHS CONTAINER -------------->
+    <!-- ======================== Month Selector ============================ -->
 
     <div class="container-fluid selector">
 
-        <!----------------- Month Selector------------>
-
-            <div class="col-md-offset-5">
-                <h4>Filter Month:</h4>
-            </div>
-        
+        <div class="col-md-offset-5">
+            <h4>Filter Month:</h4>
+        </div>
 
         <div class="row">
-            
+
             <div class="col-md-offset-5" id="month-selector"></div>
         </div>
     </div>
 
-
-    <!----------------- SECTION 1 total rain and sunlight --------------------------------->
+    <!-- ======================== Section 1: Total Rainfall and Sunlight ============================ -->
 
     <div id="section1" class="container-fluid">
-
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <h4 class="graph-title">Total Rainfall Each Year (In ml)</h4>
+            <div class="col-xs-12 col-sm-6 col-md-6 total-header">
+                <h4 class="total-header">Total Rainfall Each Year (In ml)</h4>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <h4 class "graph-title">Total Sunlight Each Year (In Hours)</h4>
+            <div class="col-xs-12 col-sm-6 col-md-6 total-header">
+                <h4>Total Sunlight Each Year (In Hours)</h4>
             </div>
         </div>
         <div class="row">
@@ -119,19 +110,19 @@
         </div>
     </div>
 
+    <!-- ======================== Section 2: Gust ============================ -->
 
 
-    <!----------------- SECTION 2  GUST--------------------------------->
     <div id="section2" class="container-fluid">
 
 
 
         <div class="row gustinfo">
             <div class="col-md-4 gustinfo">
-                
+
                 <h3>How does the wind affect flights?</h3>
-                
-                 <div id="year-selector">
+
+                <div id="year-selector">
                     <p>Filter Year:</p>
                 </div>
                 <p>In aviation, speed is measured in Knots (Nautical Miles Per Hour). This is converted to Miles Per Hour (mph) by multiplying it by 1.15. The maximum wind limits for commercial aircraft depend on the aircraft, airport and the direction of
@@ -139,9 +130,8 @@
                     is there is snow, ice or standing water on the runway.</p>
                 <p>As a general rule, most airline aircraft have a demonstrated crosswind limit of 30-35 knots.</p>
                 <p>The 99 mh (86 knots) gust at Shannon Airport in 2014 (in Red) was the highest February value recorded since 1945 and the highest overall since 1961 as a Result of Storm Darwin in 2014</p>
-                
             </div>
-            
+
             <div class="col-md-8 gustchart">
                 <h3>Highest Gust Every Month for 10 Years</h3>
                 <p>Hover to see each year</p>
@@ -151,72 +141,60 @@
         </div>
     </div>
 
-
-    <!----------------- SECTION 3 AVG AIR TEMP--------------------------------->
+    <!-- ======================== Section 3 Average Air Temperature  ============================ -->
 
     <div id="section3" class="container-fluid">
 
-      
-        <div class="row">
-            
-            <div class="col-md-8">
-                <h3>Highest Gust Every Month for 10 Years</h3>
-                <p>Hover to see each year</p>
-           
-                        <div class="col-md-8" id="avg-air-temp"></div>
 
-             </div>
-             <div class="col-md-4">
-                
-                <h3>How does the air temp affect air travel?</h3>
-                
-                 <div id="year-selector">
+        <div class="row">
+
+            <div class="col-md-7 airinfo">
+                <h3>Average Air Temperature</h3>
+
+                <div class="col-md-7" id="avg-air-temp"></div>
+
+            </div>
+            <div class="col-md-5">
+
+                <h3>How does the air temperature affect travel?</h3>
+
+                <div id="year-selector-2">
                     <p>Filter Year:</p>
                 </div>
-                <p>In aviation, speed is measured in Knots (Nautical Miles Per Hour). This is converted to Miles Per Hour (mph) by multiplying it by 1.15. The maximum wind limits for commercial aircraft depend on the aircraft, airport and the direction of
-                    the wind compared to the direction of the take-off or landing. For take off and landing, aircraft have different limitations, and these are again split up into dry, wet or contaminated runway limitations. A contaminated runway is where
-                    is there is snow, ice or standing water on the runway.</p>
-                <p>As a general rule, most airline aircraft have a demonstrated crosswind limit of 30-35 knots.</p>
-                <p>The 99 mh (86 knots) gust at Shannon Airport in 2014 (in Red) was the highest February value recorded since 1945 and the highest overall since 1961 as a Result of Storm Darwin in 2014</p>
-                
+                <p>High air temperatures affect the physics of how aircraft fly, meaning aircraft takeoff performance can be impaired on hot days. The amount of lift that an airplane wing generates is affected by the density of the air. Air density in turn
+                    depends mostly on air temperature and elevation; higher temperatures and higher elevations both reduce density.</p>
+                <p>As air warms, it thins and wings generate less lift. Depending on factors such as type of aircraft and runway length, a packed plane may be unable to take off safely if temperatures rise too high.</p>
+
             </div>
 
         </div>
     </div>
-
-
-    <!----------------- SECTION 4--------------------------------->
 
     <div id="section4" class="container-fluid">
 
         <div class="row">
             <div class="col-md-offset-2">
-                <h4>LAST GRAPTH BOILERPLATE</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-offset-2" id=""></div>
+            <div class="col-md-offset-2"></div>
         </div>
     </div>
 
+    <!-- ======================== Footer ============================ -->
 
-    <!----------------- FOOTER -------------->
 
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
 
-    <div class="row">
-        <div id="footer">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a class ="jess" href="https://github.com/jessdevine"> JessDevine</a>
+  </div>
+  <!-- Copyright -->
 
-            <div class="col-md-6">
-                <p class="footer-text"></p>
-
-            </div>
-
-            <div class="col-md-6">
-                <p class="footer-text">Copyright Jessica Devine </p>
-            </div>
-        </div>
-    </div>
-
+</footer>
+<!-- Footer -->
 
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd3vd1Y1mS2MoYOUFnsR_45BTVZEQfwzo&callback=initMap"></script>

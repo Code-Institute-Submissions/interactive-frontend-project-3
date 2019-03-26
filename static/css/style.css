@@ -81,7 +81,12 @@ color: gray;
 
 #year-selector {
     float: none;
-    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+#year-selector-2 {
+    float: none;
     padding-bottom: 20px;
     padding-right: 20px;
 }
@@ -99,7 +104,7 @@ color: gray;
 
 /* --- SECTION 1 gust----*/
 
-.graph-title {
+.total-header {
     padding-left: 20px; 
 }
 
@@ -110,6 +115,11 @@ color: gray;
 .gustchart {
     padding-left: 100px;
 }
+
+.airinfo {
+    padding-left: 20px;
+}
+
 
 
 /* --- SECTION 2 ----*/
@@ -131,15 +141,11 @@ color: gray;
 
 /* --- FOOTER ----*/
 
-.footertest {
-    padding-left: 0px;
-    padding-right: 0px;
-}
 
-
-#footer {
+.blue {
     height: 30px;
     background-color: #1a6ecc;
+    color: white;
 }
 
 .footer-text {
@@ -147,4 +153,7 @@ color: gray;
     text-align: right;
 }
 
+.jess {
+    color: white;
+}
 

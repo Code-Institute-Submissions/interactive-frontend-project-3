@@ -30,6 +30,7 @@ function makeGraphs(error, airportData) {
     show_total_sunlight(ndx);
     show_gust_scatter_plot(ndx);
     show_avg_bar_chart_test(ndx);
+    show_year_selector2(ndx);
 
     dc.renderAll();
 }
@@ -45,6 +46,15 @@ function show_year_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('year'));
 
     dc.selectMenu("#year-selector")
+        .dimension(dim)
+        .group(dim.group());
+}
+
+function show_year_selector2(ndx) {
+
+    var dim = ndx.dimension(dc.pluck('year'));
+
+    dc.selectMenu("#year-selector-2")
         .dimension(dim)
         .group(dim.group());
 }
@@ -88,9 +98,7 @@ function show_total_rainfall(ndx) {
         .margins({ top: 40, right: 50, bottom: 30, left: 70 })
         .dimension(year_dim)
         .group(total_rainfall_year_group)
-
         // Below causes the bar chart to cut off the top values ¯\_(ツ)_/¯
-
         //   .valueAccessor(function(d) {  
         //      return d.value.toFixed(1);
         //        })
@@ -231,9 +239,9 @@ function show_avg_bar_chart_test(ndx) {
             return d.value.average;
         })
         .transitionDuration(500)
-        //  .x(d3.time.scale().domain([min_date, max_date]))
         .x(d3.time.scale().domain([min_date, d3.time.month.offset(max_date, 1)]))
-        //  .xUnits(dc.units.ordinal)
         .brushOn(false)
         .yAxis().ticks(6);
 }
+
+
