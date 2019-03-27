@@ -36,9 +36,6 @@ function makeGraphs(error, airportData) {
 }
 
 
-
-
-
 //------- YEAR SELECTOR -------
 
 function show_year_selector(ndx) {
@@ -243,5 +240,3 @@ function show_avg_bar_chart_test(ndx) {
         .brushOn(false)
         .yAxis().ticks(6);
 }
-
-
