@@ -91,13 +91,16 @@ Due to the nature of DC.js & D3.js I opted for manual testing.
 ##### Month Selector & Bar Charts (Rainfall & Sunlight):
 
 — Go to "Filter Month":
+
 — Drop down to select Month and Selects a specific month 
+
 — The following two graphs change and display data per the month selected
-— — Note: On the month and year selectors/filters, there is an `:11` and `:12` added to end of the options. After lots of troubleshooting
+
+- Note: On the month and year selectors/filters, there is an `:11` and `:12` added to end of the options. After lots of troubleshooting
  and researching it appears that this is happening due to something with DC/D3. Couldn't find an answer online
 and the same thing happened in the course content without a way to fix it. Would like to implement this in
 the future.
-— — Note 2: Bar Charts: adding in a `value assessor` to set a 2 decimal point would cause the 
+- Note 2: Bar Charts: adding in a `value assessor` to set a 2 decimal point would cause the 
 bars to get cut off when filtering between years and months. After testing found this is related to the
 `elastic y` set on the Y axis. I decided to keep the `elastic y` for visual reasons. Would like to add
 the value assessor at some point. 
