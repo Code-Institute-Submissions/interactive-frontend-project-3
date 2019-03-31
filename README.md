@@ -187,6 +187,8 @@ https://github.com/jessdevine/interactive-frontend-project
 
 ### Credits
 
+Airport Weather CSV: https://data.gov.ie/dataset/shannon-airport-monthly-weather-station-data
+
 Intro: https://www.ittn.ie/news/top-10-facts-about-shannon-airport/
 
 How Does Wind Affect Flights: https://www.flightdeckfriend.com/ask-a-captain/aircraft-maximum-wind-limits/
