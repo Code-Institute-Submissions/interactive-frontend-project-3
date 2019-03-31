@@ -116,9 +116,6 @@ color: gray;
     padding-left: 100px;
 }
 
-.airinfo {
-    padding-left: 20px;
-}
 
 
 
@@ -134,8 +131,12 @@ color: gray;
     width: 28px;
 } 
 
-.air-temp {
-    padding-bottom: 500px;
+.airinfo {
+    padding-right: 40px;
+}
+
+.airgraph {
+    padding-left: 20px;
 }
 
 

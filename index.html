@@ -79,7 +79,7 @@
 
     <!-- ======================== Month Selector ============================ -->
 
-    <div class="container-fluid selector">
+    <div id="section1" class="container-fluid selector">
 
         <div class="col-md-offset-5">
             <h4>Filter Month:</h4>
@@ -93,7 +93,7 @@
 
     <!-- ======================== Section 1: Total Rainfall and Sunlight ============================ -->
 
-    <div id="section1" class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 total-header">
                 <h4 class="total-header">Total Rainfall Each Year (In ml)</h4>
@@ -146,13 +146,13 @@
 
         <div class="row">
 
-            <div class="col-md-7 airinfo">
-                <h3>Average Air Temperature</h3>
+            <div class="col-md-7">
+                <h3 class="airgraph">Average Air Temperature</h3>
 
                 <div class="col-md-7" id="avg-air-temp"></div>
 
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 airinfo">
 
                 <h3>How does the air temperature affect travel?</h3>
 
@@ -168,31 +168,17 @@
         </div>
     </div>
 
-    <div id="section4" class="container-fluid">
-
-        <div class="row">
-            <div class="col-md-offset-2">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-offset-2"></div>
-        </div>
-    </div>
 
     <!-- ======================== Footer ============================ -->
 
 
-    <!-- Footer -->
     <footer class="page-footer font-small blue">
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    <a class ="jess" href="https://github.com/jessdevine"> JessDevine</a>
-  </div>
-  <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a class="jess" href="https://github.com/jessdevine"> JessDevine</a>
+        </div>
 
-</footer>
-<!-- Footer -->
+    </footer>
 
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd3vd1Y1mS2MoYOUFnsR_45BTVZEQfwzo&callback=initMap"></script>
